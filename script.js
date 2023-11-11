@@ -325,6 +325,13 @@ const BASE_URL = "https://cloudrun-webmware-001-iwrlbwjlca-ey.a.run.app/api/v2/f
         "name": "VW"
     }
 ];
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('dropdown-button1').onclick = function() { toggleDropdown(1); };
+            document.getElementById('dropdown-button2').onclick = function() { toggleDropdown(2); };
+            document.getElementById('dropdown-button3').onclick = function() { toggleDropdown(3); };
+        });
+
         let selection1 = -1; // Variable to store the first dropdown's selection
         let selection2 = -1; // Variable to store the second dropdown's selection
         let selection3 = -1; // Variable to store the third dropdown's selection
@@ -335,6 +342,8 @@ const BASE_URL = "https://cloudrun-webmware-001-iwrlbwjlca-ey.a.run.app/api/v2/f
             lang = 'de';
         }
         populateDropdown(document.getElementById('dropdown-content1'), cachedItems);
+
+
       
         function toggleDropdown(number) {
           // Check if previous dropdowns have selections (if applicable)
