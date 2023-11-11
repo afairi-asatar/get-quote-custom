@@ -473,7 +473,7 @@ const BASE_URL = "https://cloudrun-webmware-001-iwrlbwjlca-ey.a.run.app/api/v2/f
       
         // Clicking outside the dropdowns closes them
         window.onclick = function(event) {
-          if (!event.target.matches('.dropdown button')) {
+          if (!event.target.matches('.dropdown-button')) {
             var dropdowns = document.getElementsByClassName('dropdown-content');
             for (var i = 0; i < dropdowns.length; i++) {
               var openDropdown = dropdowns[i];
