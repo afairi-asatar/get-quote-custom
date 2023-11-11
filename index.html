@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Custom Dropdown Menu</title>
+<style>
+  /* Placeholder colors and basic styling */
+  .dropdown {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.5;
+    position: relative;
+    width: 200px;
+  }
+
+  .dropdown button {
+    width: 100%;
+    padding: 10px;
+    background: #202020; /* Placeholder color */
+    color: #dedede;
+    border: 1px solid #ccc; /* Placeholder color */
+    cursor: pointer;
+    text-align: left;
+  }
+
+  .arrow-image{
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor:pointer;
+  }
+
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    width: 100%;
+    overflow-y: scroll;
+    max-height: 210px; /* Adjust height to show 6 items */
+    z-index: 1;
+    background: #fff; /* Placeholder color */
+    opacity: 0;
+    transition: opacity 0.5s;
+    border-radius: 10px;
+    border: 1px solid rgb(205, 228, 249);
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 10px;
+    margin-top: 5px;
+    padding: 10px;
+    transition: opacity 299ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, transform 500ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  }
+
+
+  .dropdown-content a {
+    padding: 10px 15px;
+    display: block;
+    text-decoration: none;
+    color: #333; /* Placeholder color */
+    border-radius: 10px;
+  }
+
+  .selected {
+    background-color: #edf4fb; /* Example color for selected items */
+    color: #72c2f2 !important;
+  }
+
+  /* Style for items on hover, not affecting selected items */
+  .dropdown-content a:hover {
+    background-color: #dbeeff; /* Example hover color */
+    color: #58acef;
+  }
+</style>
+</head>
+<body>
+
+    <div class="dropdown" id="dropdown1">
+        <button id="dropdown-button1" onclick="toggleDropdown(1)">Marke</button>
+        <img src = "https://uploads-ssl.webflow.com/645371dd8c1d114e5b315a6f/654d405d20c9a512579108c3_Down.svg" class="arrow-image" id="arrow1" onclick="toggleDropdown(1)"/>
+        <div class="dropdown-content" id="dropdown-content1">
+          <!-- Placeholder for menu items -->
+        </div>
+      </div>
+      
+      <!-- Dropdown 2 -->
+      <div class="dropdown" id="dropdown2">
+        <button id="dropdown-button2" onclick="toggleDropdown(2)">Modell</button>
+        <img src = "https://uploads-ssl.webflow.com/645371dd8c1d114e5b315a6f/654d405d20c9a512579108c3_Down.svg" class="arrow-image" id="arrow2" onclick="toggleDropdown(2)"/>
+        <div class="dropdown-content" id="dropdown-content2">
+          <!-- Placeholder for menu items -->
+        </div>
+      </div>
+      
+      <!-- Dropdown 3 -->
+      <div class="dropdown" id="dropdown3">
+        <button id="dropdown-button3" onclick="toggleDropdown(3)">Treibstoffart</button>
+        <img src = "https://uploads-ssl.webflow.com/645371dd8c1d114e5b315a6f/654d405d20c9a512579108c3_Down.svg" class="arrow-image" id="arrow3" onclick="toggleDropdown(3)"/>
+        <div class="dropdown-content" id="dropdown-content3">
+          <!-- Placeholder for menu items -->
+        </div>
+      </div>
+      
+      <script src="script.js" type="text/javascript"> </script>
+
+</body>
+</html>
