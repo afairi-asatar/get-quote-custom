@@ -333,7 +333,17 @@ const BASE_URL = "https://cloudrun-webmware-001-iwrlbwjlca-ey.a.run.app/api/v2/f
             document.getElementById('dropdown-button2').removeAttribute("href");
             document.getElementById('dropdown-button3').onclick = function() { toggleDropdown(3); };
             document.getElementById('dropdown-button3').removeAttribute("href");
-        });
+
+            [document.querySelector(".x_calculate-button")].forEach(function(el) {
+                if (el) {
+                // Split the string into an array of events and add event listeners to each
+                "click mouseover touchstart".split(" ").forEach(function(ev) {
+                    el.addEventListener(ev, function() {
+                        el.href = generateQuoteLinkShort();
+                    });
+                });
+            };
+        })})
 
         let selection1 = -1; // Variable to store the first dropdown's selection
         let selection2 = -1; // Variable to store the second dropdown's selection
@@ -491,9 +501,11 @@ const BASE_URL = "https://cloudrun-webmware-001-iwrlbwjlca-ey.a.run.app/api/v2/f
         }
         function generateQuoteLinkShort(){
             linkBase = `/safe/?${serialize(FsCC.store.getConsents())}&locale=${Weglot.getCurrentLang()}`;
-            if(document.getElementById("w-tabs-1-data-w-tab-0").getAttribute("aria-selected")) {
+            if(document.getElementById("w-tabs-1-data-w-tab-0").getAttribute("aria-selected") === "true") {
                  return linkBase + `&make=${selection1}&model=${selection2}&fuelType=${selection3}`;
             } else {
                  return linkBase + `&hsn=${document.getElementById("x_calculate_form-2-hsn-2").value}` +  `&tsn=${document.getElementById("x_calculate_form-2-hsn-2").value}`;
             }
         }
+
+     
