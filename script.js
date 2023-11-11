@@ -328,8 +328,11 @@ const BASE_URL = "https://cloudrun-webmware-001-iwrlbwjlca-ey.a.run.app/api/v2/f
         
         document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('dropdown-button1').onclick = function() { toggleDropdown(1); };
+            document.getElementById('dropdown-button1').removeAttribute("href");
             document.getElementById('dropdown-button2').onclick = function() { toggleDropdown(2); };
+            document.getElementById('dropdown-button2').removeAttribute("href");
             document.getElementById('dropdown-button3').onclick = function() { toggleDropdown(3); };
+            document.getElementById('dropdown-button3').removeAttribute("href");
         });
 
         let selection1 = -1; // Variable to store the first dropdown's selection
