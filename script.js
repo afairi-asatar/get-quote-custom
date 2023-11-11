@@ -489,6 +489,11 @@ const BASE_URL = "https://cloudrun-webmware-001-iwrlbwjlca-ey.a.run.app/api/v2/f
             }
           }
         }
-        function generateLink(){
-          return "";
+        function generateQuoteLinkShort(){
+            linkBase = `/safe/?${serialize(FsCC.store.getConsents())}&locale=${Weglot.getCurrentLang()}`;
+            if(document.getElementById("w-tabs-1-data-w-tab-0").getAttribute("aria-selected")) {
+                 return linkBase + `&make=${selection1}&model=${selection2}&fuelType=${selection3}`;
+            } else {
+                 return linkBase + `&hsn=${document.getElementById("x_calculate_form-2-hsn-2").value}` +  `&tsn=${document.getElementById("x_calculate_form-2-hsn-2").value}`;
+            }
         }
