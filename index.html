@@ -1,108 +1,252 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Custom Dropdown Menu</title>
-<style>
-  /* Placeholder colors and basic styling */
-  .dropdown {
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: 400;
-    font-size: 1rem;
-    line-height: 1.5;
-    position: relative;
-    width: 200px;
-  }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Custom Dropdown Menu</title>
+    <style>
+      /* Placeholder colors and basic styling */
+      .dropdown {
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: 400;
+        font-size: 1rem;
+        line-height: 1.5;
+        position: relative;
+        width: 200px;
+      }
 
-  .dropdown button {
-    width: 100%;
-    padding: 10px;
-    background: #202020; /* Placeholder color */
-    color: #dedede;
-    border: 1px solid #ccc; /* Placeholder color */
-    cursor: pointer;
-    text-align: left;
-  }
+      .dropdown button {
+        width: 100%;
+        padding: 10px;
+        background: #202020; /* Placeholder color */
+        color: #dedede;
+        border: 1px solid #ccc; /* Placeholder color */
+        cursor: pointer;
+        text-align: left;
+      }
 
-  .arrow-image{
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    cursor:pointer;
-  }
+      .arrow-image {
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        cursor: pointer;
+      }
 
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        width: 100%;
+        overflow-y: scroll;
+        max-height: 210px; /* Adjust height to show 6 items */
+        z-index: 1;
+        background: #fff; /* Placeholder color */
+        opacity: 0;
+        transition: opacity 0.5s;
+        border-radius: 10px;
+        border: 1px solid rgb(205, 228, 249);
+        box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 10px;
+        margin-top: 5px;
+        padding: 10px;
+        transition: opacity 299ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+          transform 500ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+      }
 
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    width: 100%;
-    overflow-y: scroll;
-    max-height: 210px; /* Adjust height to show 6 items */
-    z-index: 1;
-    background: #fff; /* Placeholder color */
-    opacity: 0;
-    transition: opacity 0.5s;
-    border-radius: 10px;
-    border: 1px solid rgb(205, 228, 249);
-    box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 10px;
-    margin-top: 5px;
-    padding: 10px;
-    transition: opacity 299ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, transform 500ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  }
+      .dropdown-content a {
+        padding: 10px 15px;
+        display: block;
+        text-decoration: none;
+        color: #333; /* Placeholder color */
+        border-radius: 10px;
+      }
 
+      .selected {
+        background-color: #edf4fb; /* Example color for selected items */
+        color: #72c2f2 !important;
+      }
 
-  .dropdown-content a {
-    padding: 10px 15px;
-    display: block;
-    text-decoration: none;
-    color: #333; /* Placeholder color */
-    border-radius: 10px;
-  }
+      /* Style for items on hover, not affecting selected items */
+      .dropdown-content a:hover {
+        background-color: #dbeeff; /* Example hover color */
+        color: #58acef;
+      }
+      /* Hide the .only-small cell on larger screens */
+      /* Hide the .only-small row on larger screens */
+      /* Initially hide the placeholder row for small screens */
+      .placeholder-small-screen {
+        display: none;
+      }
 
-  .selected {
-    background-color: #edf4fb; /* Example color for selected items */
-    color: #72c2f2 !important;
-  }
+      /* Hide the .only-small row on larger screens */
+      .only-small {
+        display: none;
+      }
 
-  /* Style for items on hover, not affecting selected items */
-  .dropdown-content a:hover {
-    background-color: #dbeeff; /* Example hover color */
-    color: #58acef;
-  }
-</style>
-</head>
-<body>
+       table#cars-table td:nth-child(5) {
+        max-width: 4rem;
+        
+       }
+      /* Responsive adjustments for small screens */
+      @media screen and (max-width: 992px) {
+        /* Show the placeholder row */
+        .placeholder-small-screen {
+          display: table-row;
+        }
 
+        /* Show the .only-small row */
+        .only-small {
+          display: table-row;
+        }
+
+        /* Hide the original first column of the regular row */
+        tr:not(.only-small) td:nth-child(2),
+        tr th:nth-child(2) {
+          display: none;
+        }
+      }
+
+      .model-data {
+        font-weight: bold;
+      }
+
+      /* Hide default radio button */
+      input[type="radio"] {
+        display: none;
+      }
+
+      /* Style for custom radio button */
+      input[type="radio"] + label {
+        background-image: url('https://uploads-ssl.webflow.com/645371dd8c1d114e5b315a6f/656ce93d67e71704ab3a3a70_Radiobutton.svg');
+        background-size: contain;
+        height: 20px;
+        width: 20px;
+        display: inline-block;
+        cursor: pointer;
+      }
+
+      /* Style for checked state */
+      input[type="radio"]:checked + label {
+        background-size: contain;
+        background-image: url('https://uploads-ssl.webflow.com/645371dd8c1d114e5b315a6f/656ce93defb66ec40ef84518_RadiobuttonActive.svg');
+      }
+      table td { border: 0; }
+      .row-selected {
+        background-color: aquamarine;
+      }
+    </style>
+  </head>
+  <body>
     <div class="dropdown" id="dropdown1">
-        <button class="dropdown-button" id="dropdown-button1">Marke</button>
-        <img src = "https://uploads-ssl.webflow.com/645371dd8c1d114e5b315a6f/654d405d20c9a512579108c3_Down.svg" class="arrow-image" id="arrow1"/>
-        <div class="dropdown-content" id="dropdown-content1">
-          <!-- Placeholder for menu items -->
-        </div>
+      <button class="dropdown-button" id="dropdown-button1">Marke</button>
+      <img
+        src="https://uploads-ssl.webflow.com/645371dd8c1d114e5b315a6f/654d405d20c9a512579108c3_Down.svg"
+        class="arrow-image"
+        id="arrow1"
+      />
+      <div class="dropdown-content" id="dropdown-content1">
+        <!-- Placeholder for menu items -->
       </div>
-      
-      <!-- Dropdown 2 -->
-      <div class="dropdown" id="dropdown2">
-        <button class="dropdown-button" id="dropdown-button2">Modell</button>
-        <img src = "https://uploads-ssl.webflow.com/645371dd8c1d114e5b315a6f/654d405d20c9a512579108c3_Down.svg" class="arrow-image" id="arrow2"/>
-        <div class="dropdown-content" id="dropdown-content2">
-          <!-- Placeholder for menu items -->
-        </div>
-      </div>
-      
-      <!-- Dropdown 3 -->
-      <div class="dropdown" id="dropdown3">
-        <button class="dropdown-button" id="dropdown-button3">Treibstoffart</button>
-        <img src = "https://uploads-ssl.webflow.com/645371dd8c1d114e5b315a6f/654d405d20c9a512579108c3_Down.svg" class="arrow-image" id="arrow3"/>
-        <div class="dropdown-content" id="dropdown-content3">
-          <!-- Placeholder for menu items -->
-        </div>
-      </div>
-      
-      <script src="script.js" type="text/javascript"> </script>
-      <script src="serialize.js" type="text/javascript"></script>
+    </div>
 
-</body>
+    <!-- Dropdown 2 -->
+    <div class="dropdown" id="dropdown2">
+      <button class="dropdown-button" id="dropdown-button2">Modell</button>
+      <img
+        src="https://uploads-ssl.webflow.com/645371dd8c1d114e5b315a6f/654d405d20c9a512579108c3_Down.svg"
+        class="arrow-image"
+        id="arrow2"
+      />
+      <div class="dropdown-content" id="dropdown-content2">
+        <!-- Placeholder for menu items -->
+      </div>
+    </div>
+
+    <!-- Dropdown 3 -->
+    <div class="dropdown" id="dropdown3">
+      <button class="dropdown-button" id="dropdown-button3">
+        Treibstoffart
+      </button>
+      <img
+        src="https://uploads-ssl.webflow.com/645371dd8c1d114e5b315a6f/654d405d20c9a512579108c3_Down.svg"
+        class="arrow-image"
+        id="arrow3"
+      />
+      <div class="dropdown-content" id="dropdown-content3">
+        <!-- Placeholder for menu items -->
+      </div>
+    </div>
+    <div class="dropdown" id="dropdown4">
+      <button class="dropdown-button" id="dropdown-button4">Leistung</button>
+      <img
+        src="https://uploads-ssl.webflow.com/645371dd8c1d114e5b315a6f/654d405d20c9a512579108c3_Down.svg"
+        class="arrow-image"
+        id="arrow4"
+      />
+      <div class="dropdown-content" id="dropdown-content4">
+        <!-- Placeholder for menu items -->
+      </div>
+    </div>
+    <div class="dropdown" id="dropdown5">
+      <button class="dropdown-button" id="dropdown-button5">Baujahr</button>
+      <img
+        src="https://uploads-ssl.webflow.com/645371dd8c1d114e5b315a6f/654d405d20c9a512579108c3_Down.svg"
+        class="arrow-image"
+        id="arrow5"
+      />
+      <div class="dropdown-content" id="dropdown-content5">
+        <!-- Placeholder for menu items -->
+      </div>
+    </div>
+    <div class="dropdown" id="dropdown6">
+      <button class="dropdown-button" id="dropdown-button6">Karosserie</button>
+      <img
+        src="https://uploads-ssl.webflow.com/645371dd8c1d114e5b315a6f/654d405d20c9a512579108c3_Down.svg"
+        class="arrow-image"
+        id="arrow6"
+      />
+      <div class="dropdown-content" id="dropdown-content6">
+        <!-- Placeholder for menu items -->
+      </div>
+    </div>
+
+    <br />
+
+    <table id="cars-table" cellspacing="0">
+      <colgroup>
+        <col class="model-column" />
+        <col class="body-column" />
+        <col class="power-column" />
+        <col class="year-column" />
+        <col class="hsntsn-column" />
+      </colgroup>
+      <thead>
+        <tr>
+          <td>
+          </td>
+          <td>
+            <b>Modell</b>
+          </td>
+          <td>
+            <b>Karosserie</b>
+          </td>
+          <td>
+            <b>Leistung</b>
+          </td>
+          <td>
+            <b>Baujahr</b>
+          </td>
+          <td>
+            <b>HSN/TSN</b>
+          </td>
+        </tr>
+      </thead>
+      <tbody id="cars-table-body">
+        <td colspan="100%">Your Placeholder Text</td>
+        <tr id="root"></tr>
+      </tbody>
+    </table>
+
+    <script src="script.js" type="text/javascript"></script>
+    <script src="serialize.js" type="text/javascript"></script>
+  </body>
 </html>
