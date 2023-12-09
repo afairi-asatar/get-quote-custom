@@ -4,326 +4,326 @@ let cachedItems = [
     priceFrom: 31.0,
     priceTo: null,
     id: 3,
-    name: "Alfa Romeo",
+    name: "Alfa Romeo"
   },
   {
     priceFrom: 33.0,
     priceTo: null,
     id: 6,
-    name: "Audi",
+    name: "Audi"
   },
   {
     priceFrom: 34.0,
     priceTo: null,
     id: 8,
-    name: "Bentley",
+    name: "Bentley"
   },
   {
     priceFrom: 33.0,
     priceTo: null,
     id: 9,
-    name: "BMW",
+    name: "BMW"
   },
   {
     priceFrom: 32.0,
     priceTo: null,
     id: 12,
-    name: "Cadillac",
+    name: "Cadillac"
   },
   {
     priceFrom: 33.0,
     priceTo: null,
     id: 13,
-    name: "Chevrolet",
+    name: "Chevrolet"
   },
   {
     priceFrom: 35.0,
     priceTo: null,
     id: 14,
-    name: "Chrysler",
+    name: "Chrysler"
   },
   {
     priceFrom: 35.0,
     priceTo: null,
     id: 15,
-    name: "Citroen",
+    name: "Citroen"
   },
   {
     priceFrom: 33.0,
     priceTo: null,
     id: 16,
-    name: "Dacia",
+    name: "Dacia"
   },
   {
     priceFrom: 34.0,
     priceTo: null,
     id: 17,
-    name: "Daewoo",
+    name: "Daewoo"
   },
   {
     priceFrom: 34.0,
     priceTo: null,
     id: 19,
-    name: "Daihatsu",
+    name: "Daihatsu"
   },
   {
     priceFrom: 33.0,
     priceTo: null,
     id: 22,
-    name: "Dodge",
+    name: "Dodge"
   },
   {
     priceFrom: 32.0,
     priceTo: null,
     id: 24,
-    name: "Fiat",
+    name: "Fiat"
   },
   {
     priceFrom: 33.0,
     priceTo: null,
     id: 26,
-    name: "Ford",
+    name: "Ford"
   },
   {
     priceFrom: 35.0,
     priceTo: null,
     id: 28,
-    name: "GMC",
+    name: "GMC"
   },
   {
     priceFrom: 34.0,
     priceTo: null,
     id: 29,
-    name: "Honda",
+    name: "Honda"
   },
   {
     priceFrom: 34.0,
     priceTo: null,
     id: 30,
-    name: "Hyundai",
+    name: "Hyundai"
   },
   {
     priceFrom: 34.0,
     priceTo: null,
     id: 31,
-    name: "Infiniti",
+    name: "Infiniti"
   },
   {
     priceFrom: 34.0,
     priceTo: null,
     id: 32,
-    name: "Isuzu",
+    name: "Isuzu"
   },
   {
     priceFrom: 34.0,
     priceTo: null,
     id: 33,
-    name: "Jaguar",
+    name: "Jaguar"
   },
   {
     priceFrom: 33.0,
     priceTo: null,
     id: 34,
-    name: "Jeep",
+    name: "Jeep"
   },
   {
     priceFrom: 32.0,
     priceTo: null,
     id: 35,
-    name: "Kia",
+    name: "Kia"
   },
   {
     priceFrom: 35.0,
     priceTo: null,
     id: 36,
-    name: "Lada",
+    name: "Lada"
   },
   {
     priceFrom: 34.0,
     priceTo: null,
     id: 37,
-    name: "Lancia",
+    name: "Lancia"
   },
   {
     priceFrom: 34.0,
     priceTo: null,
     id: 38,
-    name: "Land Rover",
+    name: "Land Rover"
   },
   {
     priceFrom: 33.0,
     priceTo: null,
     id: 39,
-    name: "LEVC",
+    name: "LEVC"
   },
   {
     priceFrom: 32.0,
     priceTo: null,
     id: 40,
-    name: "Lexus",
+    name: "Lexus"
   },
   {
     priceFrom: 32.0,
     priceTo: null,
     id: 41,
-    name: "MAN",
+    name: "MAN"
   },
   {
     priceFrom: 33.0,
     priceTo: null,
     id: 42,
-    name: "Maserati",
+    name: "Maserati"
   },
   {
     priceFrom: 32.0,
     priceTo: null,
     id: 44,
-    name: "Mazda",
+    name: "Mazda"
   },
   {
     priceFrom: 31.0,
     priceTo: null,
     id: 45,
-    name: "Mercedes",
+    name: "Mercedes"
   },
   {
     priceFrom: 31.0,
     priceTo: null,
     id: 46,
-    name: "MG",
+    name: "MG"
   },
   {
     priceFrom: 33.0,
     priceTo: null,
     id: 48,
-    name: "Mini",
+    name: "Mini"
   },
   {
     priceFrom: 35.0,
     priceTo: null,
     id: 49,
-    name: "Mitsubishi",
+    name: "Mitsubishi"
   },
   {
     priceFrom: 33.0,
     priceTo: null,
     id: 50,
-    name: "Nissan",
+    name: "Nissan"
   },
   {
     priceFrom: 34.0,
     priceTo: null,
     id: 52,
-    name: "Opel",
+    name: "Opel"
   },
   {
     priceFrom: 32.0,
     priceTo: null,
     id: 53,
-    name: "Peugeot",
+    name: "Peugeot"
   },
   {
     priceFrom: 31.0,
     priceTo: null,
     id: 55,
-    name: "Pontiac",
+    name: "Pontiac"
   },
   {
     priceFrom: 34.0,
     priceTo: null,
     id: 56,
-    name: "Porsche",
+    name: "Porsche"
   },
   {
     priceFrom: 33.0,
     priceTo: null,
     id: 57,
-    name: "Proton",
+    name: "Proton"
   },
   {
     priceFrom: 33.0,
     priceTo: null,
     id: 58,
-    name: "Renault",
+    name: "Renault"
   },
   {
     priceFrom: 35.0,
     priceTo: null,
     id: 60,
-    name: "Rover",
+    name: "Rover"
   },
   {
     priceFrom: 35.0,
     priceTo: null,
     id: 61,
-    name: "Saab",
+    name: "Saab"
   },
   {
     priceFrom: 31.0,
     priceTo: null,
     id: 62,
-    name: "Seat",
+    name: "Seat"
   },
   {
     priceFrom: 35.0,
     priceTo: null,
     id: 63,
-    name: "Skoda",
+    name: "Skoda"
   },
   {
     priceFrom: 32.0,
     priceTo: null,
     id: 64,
-    name: "Smart",
+    name: "Smart"
   },
   {
     priceFrom: 31.0,
     priceTo: null,
     id: 65,
-    name: "Ssangyong",
+    name: "Ssangyong"
   },
   {
     priceFrom: 33.0,
     priceTo: null,
     id: 66,
-    name: "StreetScooter",
+    name: "StreetScooter"
   },
   {
     priceFrom: 33.0,
     priceTo: null,
     id: 67,
-    name: "Subaru",
+    name: "Subaru"
   },
   {
     priceFrom: 31.0,
     priceTo: null,
     id: 68,
-    name: "Suzuki",
+    name: "Suzuki"
   },
   {
     priceFrom: 32.0,
     priceTo: null,
     id: 70,
-    name: "Tesla",
+    name: "Tesla"
   },
   {
     priceFrom: 32.0,
     priceTo: null,
     id: 71,
-    name: "Toyota",
+    name: "Toyota"
   },
   {
     priceFrom: 32.0,
     priceTo: null,
     id: 73,
-    name: "Volvo",
+    name: "Volvo"
   },
   {
     priceFrom: 34.0,
     priceTo: null,
     id: 74,
-    name: "VW",
-  },
+    name: "VW"
+  }
 ];
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -357,9 +357,20 @@ document.addEventListener("DOMContentLoaded", function () {
           });
         });
       }
-    },
+    }
   );
+
+  try {
+    lang = Weglot.getCurrentLang();
+    clearTable();
+  } catch (error) {
+    lang = "de";
+  }
 });
+
+setTimeout(function () {
+  clearTable();
+}, 1000);
 
 let make = -1;
 let model = -1;
@@ -371,12 +382,7 @@ let hpMax = -1;
 let yearMin = -1;
 let yearMax = -1;
 let abstractVehicleId = -1;
-let lang = "";
-try {
-  lang = Weglot.getCurrentLang();
-} catch (error) {
-  lang = "de";
-}
+
 populateDropdown(document.getElementById("dropdown-content1"), cachedItems);
 clearTable();
 
@@ -388,7 +394,7 @@ function toggleDropdown(number) {
     fuelType,
     hpMin + hpMax,
     yearMin + yearMax,
-    bodyType,
+    bodyType
   ];
   for (var i = 0; i < number - 1; i++) {
     if (values[i] < 0) {
@@ -405,15 +411,18 @@ function toggleDropdown(number) {
     if (element.id !== contentId) {
       element.style.display = "none";
       element.style.opacity = 0;
+
+      //delete all child nodes
+      element.innerHTML = "";
     }
   });
-  Array.from(document.getElementsByClassName("arrow-image")).forEach(
-    function (arrow) {
-      if (arrow.id !== "arrow" + number) {
-        arrow.style.transform = "rotate(0deg) translateY(-50%)";
-      }
-    },
-  );
+  Array.from(document.getElementsByClassName("arrow-image")).forEach(function (
+    arrow
+  ) {
+    if (arrow.id !== "arrow" + number) {
+      arrow.style.transform = "rotate(0deg) translateY(-50%)";
+    }
+  });
 
   // Toggle current dropdown
   if (content.style.display === "block") {
@@ -507,6 +516,7 @@ function toggleDropdown(number) {
 }
 
 function populateDropdown(dropdownContent, items) {
+  lang = Weglot.getCurrentLang();
   dropdownContent.innerHTML = ""; // Clear existing items
   let currentSelection;
   switch (dropdownContent.id) {
@@ -530,11 +540,12 @@ function populateDropdown(dropdownContent, items) {
       break;
   }
   items.forEach((item) => {
-    const a = document.createElement("a");
+    let a = document.createElement("a");
+    a.classList.add("car-link");
+    a.href = "#";
+    a.id = item.id;
     if (dropdownContent.id === "dropdown-content1") {
       a.innerText = item.name; // Adjust according to the actual data structure
-      a.id = item.id;
-      a.href = "#";
     } else if (dropdownContent.id === "dropdown-content4") {
       a.innerText =
         item.minHpValue +
@@ -543,32 +554,36 @@ function populateDropdown(dropdownContent, items) {
         (lang === "de" ? " PS" : " HP");
       a.setAttribute("minHpValue", item.minHpValue);
       a.setAttribute("maxHpValue", item.maxHpValue);
-      a.href = "#";
+      a.id = item.minHpValue;
     } else if (dropdownContent.id === "dropdown-content5") {
-      a.innerText = item.startOfRange + " - " + item.endOfRange;
+      a.innerText = item.startOfRange + " - " + item.endOfRange ? item.endOfRange : 
+      (lang === "de"
+      ? "heute"
+      : "today");
       a.setAttribute("startOfRange", item.startOfRange);
       a.setAttribute("endOfRange", item.endOfRange);
-      a.href = "#";
+      a.id = item.startOfRange;
     } else {
-      if (lang == "de") a.innerText = item.nameDe;
+      if (lang === "de") a.innerText = item.nameDe;
       else a.innerText = item.nameEn;
-      a.id = item.id;
-      a.href = "#";
     }
 
     if (a.id === currentSelection) {
       a.classList.add("selected");
     }
 
+    dropdownContent.appendChild(a);
+
+    a = document.getElementById(a.id);
+
     a.onclick = function () {
       selectItem(a, dropdownContent.id);
     };
-    dropdownContent.appendChild(a);
   });
 }
 
 function selectItem(element, contentId) {
-  console.log("what");
+  abstractVehicleId = -1;
   dropdownNumber = parseInt(contentId.charAt(contentId.length - 1));
   // Remove 'selected' class from all items in this dropdown
   let items = element.parentNode.querySelectorAll("a");
@@ -660,11 +675,27 @@ function selectItem(element, contentId) {
 function clearTable() {
   const tbody = document.getElementById("cars-table-body");
   if (tbody) {
-    tbody.innerHTML = `<tr><td colspan="2" style="text-align:center;">${
+    string =
       lang === "de"
         ? "Wir konnten kein Fahrzeug zu Ihren Angaben finden"
-        : "We could not find a vehicle to your specifications"
-    }</td></tr>`;
+        : "We could not find a vehicle to your specifications";
+    if (make === -1) {
+      string =
+        lang === "de"
+          ? "Bitte wählen sie einen Hersteller"
+          : "Please choose a manufacturer";
+    } else if (model === -1) {
+      string =
+        lang === "de"
+          ? "Bitte wählen sie ein Modell"
+          : "Please choose a model series";
+    } else if (fuelType === -1) {
+      string =
+        lang === "de"
+          ? "Bitte wählen sie eine Treibstoffart"
+          : "Please choose a fuel type";
+    }
+    tbody.innerHTML = `<tr><td></td><td colspan="2" style="vertical-align: middle;">${string}</td></tr>`;
   }
 }
 
@@ -688,9 +719,12 @@ window.onclick = function (event) {
 async function getCars() {
   let linkBase =
     "https://cloudrun-webmware-001-iwrlbwjlca-ey.a.run.app/api/v2/Vehicles/vehicles/abstract-cars-l2?";
-  let switcher = document.getElementById("w-tabs-1-data-w-tab-0");
+  let switcher =
+    document
+      .querySelector(".x_calculate_ui-wrapper")
+      .childNodes[0].getAttribute("aria-selected") === "true";
   let url = linkBase;
-  if (!switcher || switcher.getAttribute("aria-selected") === "true") {
+  if (switcher) {
     url +=
       (model > 0 ? "&model_series_id=" + model : "") +
       (fuelType > 0 ? "&fuel_type_id=" + fuelType : "") +
@@ -722,30 +756,30 @@ function fillTable(data) {
     <tr id="tr-${element.id}" value = ${element.id}>
     <td>
     <input type="radio" name="selectRow" id="radio-${element.id}" value="${
-      element.id
-    }" onchange="selectRow(this)">
+        element.id
+      }" onchange="selectRow(this)">
     <label for="radio-${element.id}"></label>
     </td>
     <td class="model-data">${element.fullNameDisplayedAs}</td>
     <td>${lang === "de" ? element.bodyTypeNameDe : element.bodyTypeNameEn}</td>
     <td>${element.performanceKw} kW / ${element.performanceHp} ${
-      lang === "de" ? "PS" : "HP"
-    }</td>
+        lang === "de" ? "PS" : "HP"
+      }</td>
     <td>${element.productionFromYear} - ${
-      element.productionToYear > 0
-        ? element.productionToYear
-        : lang === "de"
-        ? "heute"
-        : "today"
-    }</td>
-    <td>${element.hsnTsnsDisplayed.join("\r\n")}</td>
+        element.productionToYear
+          ? element.productionToYear
+          : lang === "de"
+          ? "heute"
+          : "today"
+      }</td>
+    <td>${element.hsnTsnsDisplayed.join(";\r\n")}</td>
     </tr>`;
       tbody.insertAdjacentHTML("beforeend", rowHTML);
 
       let row = document.getElementById(`tr-${element.id}`);
       let label = row.querySelector(`label[for='radio-${element.id}']`);
       [row, label].forEach((element) =>
-        element.addEventListener("click", () => selectRadio(element.id)),
+        element.addEventListener("click", () => selectRadio(element.id))
       );
     });
     if (data.length === 0) {
@@ -784,20 +818,28 @@ function selectRow(radioInput) {
 }
 
 function generateQuoteLink() {
-  linkBase = `/safe/?${serialize(
-    FsCC.store.getConsents(),
+  linkBase = `/safe?${serialize(
+    FsCC.store.getConsents()
   )}&locale=${Weglot.getCurrentLang()}`;
   if (
     document
-      .getElementById("w-tabs-1-data-w-tab-0")
-      .getAttribute("aria-selected") === "true"
+      .querySelector(".x_calculate_ui-wrapper")
+      .childNodes[0].getAttribute("aria-selected") === "true"
   ) {
-    return (
-      linkBase +
-      `&make=${make > 0 ? make : ""}` +
-      `&model=${model > 0 ? model : ""}` +
-      `&fuelType=${fuelType > 0 ? fuelType : ""}`
-    );
+    if (abstractVehicleId < 0) {
+      return (
+        linkBase +
+        (model > 0 ? "&model_series_id=" + model : "") +
+        (fuelType > 0 ? "&fuel_type_id=" + fuelType : "") +
+        (hpMin > 0 ? "&performance_hp_from=" + hpMin : "") +
+        (hpMax > 0 ? "&performance_hp_to=" + hpMax : "") +
+        (yearMin > 0 ? "&production_from_year=" + yearMin : "") +
+        (yearMax > 0 ? "&production_to_year=" + yearMax : "") +
+        (bodyType > 0 ? "&body_type_id=" + bodyType : "")
+      );
+    } else {
+      return linkBase + "&vehicleId=" + abstractVehicleId;
+    }
   } else {
     return (
       linkBase +
