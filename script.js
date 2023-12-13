@@ -325,7 +325,7 @@ let cachedItems = [
     name: "VW"
   }
 ];
-
+let lang = "de";
 document.addEventListener("DOMContentLoaded", function () {
   for (
     var i = 0;
@@ -347,19 +347,6 @@ document.addEventListener("DOMContentLoaded", function () {
     })(i);
   }
 
-  Array.from(document.querySelectorAll("a.x_calculate_button")).forEach(
-    function (el) {
-      if (el) {
-        // Split the string into an array of events and add event listeners to each
-        "click mouseover touchstart".split(" ").forEach(function (ev) {
-          el.addEventListener(ev, function () {
-            el.href = generateQuoteLink();
-          });
-        });
-      }
-    }
-  );
-
   try {
     lang = Weglot.getCurrentLang();
     clearTable();
@@ -367,10 +354,6 @@ document.addEventListener("DOMContentLoaded", function () {
     lang = "de";
   }
 });
-
-setTimeout(function () {
-  clearTable();
-}, 1000);
 
 let make = -1;
 let model = -1;
@@ -382,6 +365,8 @@ let hpMax = -1;
 let yearMin = -1;
 let yearMax = -1;
 let abstractVehicleId = -1;
+
+clearTable();
 
 populateDropdown(document.getElementById("dropdown-content1"), cachedItems);
 clearTable();
@@ -556,10 +541,10 @@ function populateDropdown(dropdownContent, items) {
       a.setAttribute("maxHpValue", item.maxHpValue);
       a.id = item.minHpValue;
     } else if (dropdownContent.id === "dropdown-content5") {
-      a.innerText = item.startOfRange + " - " + item.endOfRange ? item.endOfRange : 
-      (lang === "de"
-      ? "heute"
-      : "today");
+      a.innerText =
+        item.startOfRange +
+        " - " +
+        (item.endOfRange ? item.endOfRange : lang === "de" ? "heute" : "today");
       a.setAttribute("startOfRange", item.startOfRange);
       a.setAttribute("endOfRange", item.endOfRange);
       a.id = item.startOfRange;
@@ -653,6 +638,9 @@ function selectItem(element, contentId) {
         bodyType = element.id;
         break;
     }
+
+    updateButtonLink();
+
     clearTable();
 
     //fill cars table if 3 or more are selected
@@ -738,6 +726,7 @@ async function getCars() {
       `&hsn=${document.getElementById("x_calculate_form-2-hsn-2").value}` +
       `&tsn=${document.getElementById("x_calculate_form-2-tsn-2").value}`;
   }
+  console.log(url);
   const response = await fetch(url);
   const data = await response.json();
   return data;
@@ -778,7 +767,8 @@ function fillTable(data) {
 
       let row = document.getElementById(`tr-${element.id}`);
       let label = row.querySelector(`label[for='radio-${element.id}']`);
-      [row, label].forEach((element) =>
+      let smallRow = document.getElementById(`to-${element.id}`);
+      [row, label, smallRow].forEach((element) =>
         element.addEventListener("click", () => selectRadio(element.id))
       );
     });
@@ -818,28 +808,29 @@ function selectRow(radioInput) {
 }
 
 function generateQuoteLink() {
-  linkBase = `/safe?${serialize(
-    FsCC.store.getConsents()
-  )}&locale=${Weglot.getCurrentLang()}`;
+  linkBase =
+    "/safe?" +  //FsCC.store.getConsents())} //{serialize(
+    `locale=${Weglot.getCurrentLang()}`;
   if (
     document
       .querySelector(".x_calculate_ui-wrapper")
       .childNodes[0].getAttribute("aria-selected") === "true"
   ) {
-    if (abstractVehicleId < 0) {
-      return (
-        linkBase +
-        (model > 0 ? "&model_series_id=" + model : "") +
-        (fuelType > 0 ? "&fuel_type_id=" + fuelType : "") +
-        (hpMin > 0 ? "&performance_hp_from=" + hpMin : "") +
-        (hpMax > 0 ? "&performance_hp_to=" + hpMax : "") +
-        (yearMin > 0 ? "&production_from_year=" + yearMin : "") +
-        (yearMax > 0 ? "&production_to_year=" + yearMax : "") +
-        (bodyType > 0 ? "&body_type_id=" + bodyType : "")
-      );
-    } else {
-      return linkBase + "&vehicleId=" + abstractVehicleId;
-    }
+    //if (abstractVehicleId < 0) { Vehicle id support not there yet
+    return (
+      linkBase +
+      (make > 0 ? "&make=" + make : "") +
+      (model > 0 ? "&model=" + model : "") +
+      (fuelType > 0 ? "&fuelType=" + fuelType : "") +
+      (hpMin > 0 ? "&minHpValue=" + hpMin : "") +
+      (hpMax > 0 ? "&maxHpValue" + hpMax : "") +
+      (yearMin > 0 ? "&yearFrom=" + yearMin : "") +
+      (yearMax > 0 ? "&yearTo=" + yearMax : "") +
+      (bodyType > 0 ? "&bodyType=" + bodyType : "")
+    );
+    //} else {
+    //  return linkBase + "&vehicleId=" + abstractVehicleId;
+    //}
   } else {
     return (
       linkBase +
@@ -851,4 +842,12 @@ function generateQuoteLink() {
 
 function getSecondPart(str) {
   return str.split("-")[1];
+}
+
+function updateButtonLink() {
+  Array.from(document.querySelectorAll("a.x_calculate_button")).forEach(
+    function (el) {
+      el.href = generateQuoteLink();
+    }
+  );
 }
