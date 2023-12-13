@@ -483,8 +483,7 @@ function toggleDropdown(number) {
             hpMax +
             "&production_from_year=" +
             yearMin +
-            "&production_to_year=" +
-            yearMax;
+            (yearMax > 0 ? "&production_to_year=" + yearMax : "");
           break;
       }
       fetch(fetchURL)
@@ -632,7 +631,11 @@ function selectItem(element, contentId) {
         break;
       case 5:
         yearMin = parseInt(element.getAttribute("startOfRange"));
-        yearMax = parseInt(element.getAttribute("endOfRange"));
+        let endOfRange = element.getAttribute("endOfRange");
+        yearMax =
+          endOfRange === "null"
+            ? -1
+            : parseInt(element.getAttribute("endOfRange"));
         break;
       case 6:
         bodyType = element.id;
@@ -726,7 +729,6 @@ async function getCars() {
       `&hsn=${document.getElementById("x_calculate_form-2-hsn-2").value}` +
       `&tsn=${document.getElementById("x_calculate_form-2-tsn-2").value}`;
   }
-  console.log(url);
   const response = await fetch(url);
   const data = await response.json();
   return data;
@@ -737,30 +739,26 @@ function fillTable(data) {
   if (tbody) {
     tbody.innerHTML = "";
     data.forEach((element) => {
-      let rowHTML = `<tr id="to-${
-        element.id
-      }" class="only-small model-data"> <!-- This row is only for small screens -->
+      let rowHTML = `<tr id="to-${element.id
+        }" class="only-small model-data"> <!-- This row is only for small screens -->
     <td colspan="100%">${element.fullNameDisplayedAs}</td>
     </tr>
     <tr id="tr-${element.id}" value = ${element.id}>
     <td>
-    <input type="radio" name="selectRow" id="radio-${element.id}" value="${
-        element.id
-      }" onchange="selectRow(this)">
+    <input type="radio" name="selectRow" id="radio-${element.id}" value="${element.id
+        }" onchange="selectRow(this)">
     <label for="radio-${element.id}"></label>
     </td>
     <td class="model-data">${element.fullNameDisplayedAs}</td>
     <td>${lang === "de" ? element.bodyTypeNameDe : element.bodyTypeNameEn}</td>
-    <td>${element.performanceKw} kW / ${element.performanceHp} ${
-        lang === "de" ? "PS" : "HP"
-      }</td>
-    <td>${element.productionFromYear} - ${
-        element.productionToYear
+    <td>${element.performanceKw} kW / ${element.performanceHp} ${lang === "de" ? "PS" : "HP"
+        }</td>
+    <td>${element.productionFromYear} - ${element.productionToYear
           ? element.productionToYear
           : lang === "de"
-          ? "heute"
-          : "today"
-      }</td>
+            ? "heute"
+            : "today"
+        }</td>
     <td>${element.hsnTsnsDisplayed.join(";\r\n")}</td>
     </tr>`;
       tbody.insertAdjacentHTML("beforeend", rowHTML);
@@ -773,11 +771,10 @@ function fillTable(data) {
       );
     });
     if (data.length === 0) {
-      tbody.innerHTML = `<tr><td colspan="2" style="text-align:center;">${
-        lang === "de"
+      tbody.innerHTML = `<tr><td colspan="2" style="text-align:center;">${lang === "de"
           ? "Wir konnten kein Fahrzeug zu Ihren Angaben finden"
           : "We could not find a vehicle to your specifications"
-      }</td></tr>`;
+        }</td></tr>`;
     }
   }
 }
@@ -790,7 +787,7 @@ function selectRadio(rowId) {
 
 function selectRow(radioInput) {
   // Update the global variable with the selected row's ID
-  abstractVehicleId = radioInput.value;
+  abstractVehicleId = parseInt(radioInput.value);
   // Remove highlight from all rows
   document.querySelectorAll("#cars-table-body tr").forEach((row) => {
     row.classList.remove("row-selected"); // Reset background color
@@ -805,12 +802,15 @@ function selectRow(radioInput) {
   document
     .getElementById(`to-${radioInput.value}`)
     .classList.add("row-selected"); // Change to desired color
+
+  updateButtonLink();
 }
 
 function generateQuoteLink() {
   linkBase =
-    "/safe?" +  //FsCC.store.getConsents())} //{serialize(
-    `locale=${Weglot.getCurrentLang()}`;
+    "/safe/car-warranty/vehicle-selection?" +
+    serialize(FsCC.store.getConsents()) +
+    `&locale=${Weglot.getCurrentLang()}`;
   if (
     document
       .querySelector(".x_calculate_ui-wrapper")
@@ -822,8 +822,9 @@ function generateQuoteLink() {
       (make > 0 ? "&make=" + make : "") +
       (model > 0 ? "&model=" + model : "") +
       (fuelType > 0 ? "&fuelType=" + fuelType : "") +
+      (abstractVehicleId > 0 ? "&vehicleId=" + abstractVehicleId : "") +
       (hpMin > 0 ? "&minHpValue=" + hpMin : "") +
-      (hpMax > 0 ? "&maxHpValue" + hpMax : "") +
+      (hpMax > 0 ? "&maxHpValue=" + hpMax : "") +
       (yearMin > 0 ? "&yearFrom=" + yearMin : "") +
       (yearMax > 0 ? "&yearTo=" + yearMax : "") +
       (bodyType > 0 ? "&bodyType=" + bodyType : "")
